@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Övning 16 – Industriell maskinpark –.Server", "Övning 16 – Industriell maskinpark –\Server\Övning 16 – Industriell maskinpark –.Server.csproj", "{9B6E8881-D2D3-410C-B38F-C2E0167746FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Övning 16 – Industriell maskinpark –.Server", "Övning 16 – Industriell maskinpark –\Server\Övning 16 – Industriell maskinpark –.Server.csproj", "{9B6E8881-D2D3-410C-B38F-C2E0167746FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Övning 16 – Industriell maskinpark –.Client", "Övning 16 – Industriell maskinpark –\Client\Övning 16 – Industriell maskinpark –.Client.csproj", "{2AF80672-8331-44F3-AEC9-39D419581B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Övning 16 – Industriell maskinpark –.Client", "Övning 16 – Industriell maskinpark –\Client\Övning 16 – Industriell maskinpark –.Client.csproj", "{2AF80672-8331-44F3-AEC9-39D419581B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Övning 16 – Industriell maskinpark –.Shared", "Övning 16 – Industriell maskinpark –\Shared\Övning 16 – Industriell maskinpark –.Shared.csproj", "{312D6F0E-06E2-4DAD-8FC4-361CCAA12988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Övning 16 – Industriell maskinpark –.Shared", "Övning 16 – Industriell maskinpark –\Shared\Övning 16 – Industriell maskinpark –.Shared.csproj", "{312D6F0E-06E2-4DAD-8FC4-361CCAA12988}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

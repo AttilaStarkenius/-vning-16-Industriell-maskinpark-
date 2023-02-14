@@ -8,8 +8,19 @@
 
 <p>This component demonstrates Industrial machinery park</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Add New Industrial Machine</button>
+@*<button class="btn btn-primary" @onclick="IncrementCount">Add New Industrial Machine</button>
+*@
+<h3>Add New Industrial Machine</h3>
+<p>
+@*   The code: ""<a href="~/AddNewIndustrialMachine.razor">Add New Industrial Machine</a>"
+    just gives http error 404 message "Denna localhost-sida går inte att
+    hittaIngen webbsida hittades för webbadressen: https://localhost:7202/~/AddNewIndustrialMachine.razor""
+    HTTP ERROR 404"
+*@
+    <a href="AddNewIndustrialMachine.razor">Add New Industrial Machine</a>
 
+@*    <a href="/Pages/AddNewIndustrialMachine">Add New Industrial Machine</a>
+*@</p>
 @code {
     //private int currentCount = 0;
 
@@ -17,9 +28,13 @@
 
     private void IncrementCount()
     {
-        div class="top-row px-4">
-        <a href = "https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-    </div>    
+        //<h3>Anchor Link</h3>
+        //<p>
+        //    <a href="/navigate1">Navigate 1</a><br />
+        //</p>
+    //    div class="top-row px-4">
+    //    <a href = "https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    //</div>    
     }
 }
 
