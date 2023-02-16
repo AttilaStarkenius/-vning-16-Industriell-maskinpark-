@@ -1,5 +1,10 @@
-﻿<h3>AddNewIndustrialMachine</h3>
-
+﻿@page "/addnewindustrialmachine"
+<h3>AddNewIndustrialMachine</h3>
+<form asp-action="AddNewIndustrialMachine" method="POST">
+    <label asp-for="Name">Add a new industrial machine:</label>
+    <input asp-for="Name">
+    <button type="submit">Add</button>
+</form>
 @code {
 
 }

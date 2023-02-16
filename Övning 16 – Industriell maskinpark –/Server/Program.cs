@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 namespace Övning_16___Industriell_maskinpark__
 {
@@ -9,6 +10,9 @@ namespace Övning_16___Industriell_maskinpark__
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddDbContext<ApplicationDbContext>(
+      options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();

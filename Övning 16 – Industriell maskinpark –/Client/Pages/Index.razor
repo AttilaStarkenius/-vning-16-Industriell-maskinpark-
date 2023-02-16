@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@*@page "/"
 
 <PageTitle>Index</PageTitle>
 
@@ -7,3 +7,88 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+*@
+
+@*@page "/index"
+*@
+@page "/"
+@using Övning_16___Industriell_maskinpark__.Shared
+@inject HttpClient Http
+
+<PageTitle>Industrial machinery park</PageTitle>
+
+<h1>Industrial machinery park</h1>
+
+<p>This component demonstrates Industrial machinery park</p>
+
+@*<button class="btn btn-primary" @onclick="IncrementCount">Add New Industrial Machine</button>
+*@
+<h3>Add New Industrial Machine</h3>
+<p>
+    @*   The code: ""<a href="~/AddNewIndustrialMachine.razor">Add New Industrial Machine</a>"
+    just gives http error 404 message "Denna localhost-sida går inte att
+    hittaIngen webbsida hittades för webbadressen: https://localhost:7202/~/AddNewIndustrialMachine.razor""
+    HTTP ERROR 404"
+    *@
+    <a href="AddNewIndustrialMachine.razor">Add New Industrial Machine</a>
+
+    @*    <a href="/Pages/AddNewIndustrialMachine">Add New Industrial Machine</a>
+    *@
+</p>
+@code {
+    //private int currentCount = 0;
+
+    private string newIndustrialMachine;
+
+    private void IncrementCount()
+    {
+        //<h3>Anchor Link</h3>
+        //<p>
+        //    <a href="/navigate1">Navigate 1</a><br />
+        //</p>
+        //    div class="top-row px-4">
+        //    <a href = "https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        //</div>
+    }
+}
+
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Name</td>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+    }
+}

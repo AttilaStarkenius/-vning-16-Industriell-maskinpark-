@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Övning_16___Industriell_maskinpark__.Shared;
+using System;
 
 namespace Övning_16___Industriell_maskinpark__.Server.Controllers
 {
@@ -7,6 +8,8 @@ namespace Övning_16___Industriell_maskinpark__.Server.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private readonly ApplicationDbContext _context;
+
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -35,6 +38,13 @@ namespace Övning_16___Industriell_maskinpark__.Server.Controllers
             })
             .ToArray();
 
+        }
+
+        public async Task<IActionResult> AddNewIndustrialMachine(WeatherForecast weatherForecast)
+        {
+            _context.Add(weatherForecast);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
