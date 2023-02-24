@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Övning 16 – Industriell 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Övning 16 – Industriell maskinpark –.Shared", "Övning 16 – Industriell maskinpark –\Shared\Övning 16 – Industriell maskinpark –.Shared.csproj", "{312D6F0E-06E2-4DAD-8FC4-361CCAA12988}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsApplication", "AzureFunctionsApplication\AzureFunctionsApplication.csproj", "{9BE6C8A3-18E6-4A97-A87F-2E73D0142C2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{312D6F0E-06E2-4DAD-8FC4-361CCAA12988}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{312D6F0E-06E2-4DAD-8FC4-361CCAA12988}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{312D6F0E-06E2-4DAD-8FC4-361CCAA12988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE6C8A3-18E6-4A97-A87F-2E73D0142C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE6C8A3-18E6-4A97-A87F-2E73D0142C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE6C8A3-18E6-4A97-A87F-2E73D0142C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE6C8A3-18E6-4A97-A87F-2E73D0142C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
