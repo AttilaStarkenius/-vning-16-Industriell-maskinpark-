@@ -12,10 +12,12 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
+using Övning_16___Industriell_maskinpark__.Client;
 using Övning_16___Industriell_maskinpark__.Shared.Entities;
-using Övning_16___Industriell_maskinpark__.Shared.TodoAPI.Entities;
-using Övning_16___Industriell_maskinpark__.Shared.TodoAPI.Extensions;
-using Övning_16___Industriell_maskinpark__.Shared.TodoAPI.Helpers;
+using AzureFunctionsApplication.Entities;
+using AzureFunctionsApplication.Extensions;
+using AzureFunctionsApplication.Helpers;
+using AzureFunctionsApplication;
 
 namespace AzureFunctionsApplication
 {

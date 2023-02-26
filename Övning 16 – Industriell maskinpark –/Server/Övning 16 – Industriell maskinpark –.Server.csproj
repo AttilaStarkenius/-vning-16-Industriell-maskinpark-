@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\AzureFunctionsApplication\AzureFunctionsApplication.csproj" />
     <ProjectReference Include="..\Client\Övning 16 – Industriell maskinpark –.Client.csproj" />
     <ProjectReference Include="..\Shared\Övning 16 – Industriell maskinpark –.Shared.csproj" />
   </ItemGroup>
