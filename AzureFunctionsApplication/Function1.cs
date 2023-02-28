@@ -12,12 +12,14 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
-using Övning_16___Industriell_maskinpark__.Client;
+//using Övning_16___Industriell_maskinpark__.Client;
 using Övning_16___Industriell_maskinpark__.Shared.Entities;
+using Övning_16___Industriell_maskinpark__.Shared;
 using AzureFunctionsApplication.Entities;
 using AzureFunctionsApplication.Extensions;
 using AzureFunctionsApplication.Helpers;
 using AzureFunctionsApplication;
+using System.Linq;
 
 namespace AzureFunctionsApplication
 {
@@ -36,7 +38,7 @@ namespace AzureFunctionsApplication
 
         [Function("Get Items")]
         public async Task<HttpResponseData> Get(
-           [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "todos")] HttpRequestData req,
+           [Microsoft.Azure.Functions.Worker.HttpTrigger(Microsoft.Azure.Functions.Worker.AuthorizationLevel.Anonymous, "get", Route = "todos")] HttpRequestData req,
            [TableInput(TableNames.TableName, TableNames.PartionKey, Connection = "AzureWebJobsStorage")] IEnumerable<ItemTableEntity> tableEntities)
         {
             _logger.LogInformation("Get all items started!");
@@ -50,7 +52,7 @@ namespace AzureFunctionsApplication
 
         [Function("Add Item")]
         public async Task<HttpResponseData> Create(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "todos")] HttpRequestData req)
+        [Microsoft.Azure.Functions.Worker.HttpTrigger(Microsoft.Azure.Functions.Worker.AuthorizationLevel.Anonymous, "post", Route = "todos")] HttpRequestData req)
         // [TableInput("Items", "Todos", Connection = "AzureWebJobsStorage")] TableClient tableClient)
         {
             _logger.LogInformation("Create new todo item");
@@ -59,7 +61,7 @@ namespace AzureFunctionsApplication
             var response = req.CreateResponse();
 
             //var stream = await new StreamReader(req.Body).ReadToEndAsync();
-            var createdItem = JsonSerializer.Deserialize<CreateItem>(req.Body, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+            var createdItem = JsonSerializer.Deserialize<CreateNewIndustrialMachine>(req.Body, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
             if (createdItem is null || string.IsNullOrWhiteSpace(createdItem.Text))
             {
@@ -67,7 +69,7 @@ namespace AzureFunctionsApplication
                 return response;
             }
 
-            var item = new Item
+            var item = new IndustrialMachine
             {
                 Text = createdItem.Text
             };
@@ -87,7 +89,7 @@ namespace AzureFunctionsApplication
 
         [Function("Delete Item")]
         public async Task<HttpResponseData> Delete(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "todos/{id}")] HttpRequestData req,
+            [Microsoft.Azure.Functions.Worker.HttpTrigger(Microsoft.Azure.Functions.Worker.AuthorizationLevel.Anonymous, "delete", Route = "todos/{id}")] HttpRequestData req,
               // [TableInput(TableNames.TableName, TableNames.PartionKey, "{id}", Connection = "AzureWebJobsStorage")] IEnumerable<ItemTableEntity> tableEntity,
               [FromRoute] string id)
         {

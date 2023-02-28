@@ -1,0 +1,51 @@
+﻿@using Övning_16___Industriell_maskinpark__.Client.Services;
+@inject IIndustrialMachineClient industrialMachineClient
+
+<div class="container">
+    <ul id="toDoItems" class="list-group align-self-sm-stretch mt-4">
+        @foreach (var item in ToDoItems)
+        {
+            <li @onclick="async () => await Completed(item)" class="list-group-item @(item.Completed ? "change" : "")">@item.Text<button @onclick="async () => await Delete(item)" @onclick:stopPropagation="true" class="btn btn-danger">X</button></li>
+        }
+    </ul>
+</div>
+
+@code {
+
+    [Parameter]
+    public List<IndustrialMachine> IndustrialMachines { get; set; } = new List<IndustrialMachine>();
+
+    private async Task Completed(IndustrialMachine item)
+    {
+        if (item is null)
+        {
+            throw new ArgumentNullException(nameof(item));
+        }
+
+        item.Completed = item.Completed ? false : true;
+
+        var isCompleted = await IIndustrialMachineClient.PutAsync(item);
+
+        if (!isCompleted)
+            item.Completed = item.Completed ? false : true;
+
+        //Handle Errors
+    }
+
+    private async Task Delete(IndustrialMachine item)
+    {
+        if (item is null)
+        {
+            throw new ArgumentNullException(nameof(item));
+        }
+
+        var isRemoved = await industrialMachineClient.RemoveAsync(item.Id);
+
+        if (isRemoved)
+        {
+            IndustrialMachines.Remove(item);
+        }
+
+    }
+
+}

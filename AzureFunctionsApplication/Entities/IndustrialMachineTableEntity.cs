@@ -1,4 +1,6 @@
 ﻿using Azure;
+using Azure.Data.Tables;
+using AzureFunctionsApplication.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,4 +24,4 @@ namespace AzureFunctionsApplication.Entities
         public ETag ETag { get; set; }
     }
 }
-}
+
